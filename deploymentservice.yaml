@@ -1,36 +1,40 @@
 apiVersion: apps/v1
-kind: Deployment # Kubernetes resource kind we are creating
+kind: Deployment
 metadata:
   name: hospital-management-deployment
 spec:
   selector:
     matchLabels:
       app: hospitalmanagement
-  replicas: 2 # Number of replicas that will be created for this deployment
+  replicas: 2
   template:
     metadata:
       labels:
         app: hospitalmanagement
     spec:
       containers:
-        - name: hospitalmanagement
-          image: pradeepbaipadithaya/devops_assignment # Image that will be used to containers in the cluster
+        - name: hospitalmanagement-web
+          image: pradeepbaipadithaya/devops-assignment-main-web # Image for web service
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8080 # The port that the container is running on in the cluster
-
+            - containerPort: 8080 # Port for the web service
+        - name: hospitalmanagement-db
+          image: pradeepbaipadithaya/devops-assignment-main-db # Image for database service
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3306 # Port for the database service
 
 ---
 
-apiVersion: v1 # Kubernetes API version
-kind: Service # Kubernetes resource kind we are creating
-metadata: # Metadata of the resource kind we are creating
-  name: hospitalmanagement
+apiVersion: v1
+kind: Service
+metadata:
+  name: hospital-management-svc
 spec:
   selector:
     app: hospitalmanagement
   ports:
     - protocol: "TCP"
-      port: 8080 # The port that the service is running on in the cluster
-      targetPort: 8080 # The port exposed by the service
-  type: NodePort # type of the service.
+      port: 8081 # Service port
+      targetPort: 8080 # Target port of the web service
+  type: NodePort
