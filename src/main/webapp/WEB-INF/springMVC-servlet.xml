@@ -42,9 +42,9 @@
 	<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
 <!-- 		<property name="driverClass" value="com.mysql.jdbc.Driver" /> -->
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/hospital" />
+		<property name="jdbcUrl" value="jdbc:mysql://db:3306/hospital" />
 		<property name="user" value="root" />
-		<property name="password" value="root" />
+		<property name="password" value="adminroot" />
 		
 		<property name="minPoolSize" value="3" />
 <!-- 		<property name="minPoolSize" value="5" />	min 5 connections -->
