@@ -1,13 +1,14 @@
-FROM tomcat:9.0
+# Use the official Tomcat image from the Docker Hub
+FROM tomcat:9.0.65-jdk11-openjdk
 
-# Remove default ROOT application
-RUN rm -rf /usr/local/tomcat/webapps/ROOT
+# Set environment variables
+ENV JAVA_OPTS="-Dspring.profiles.active=prod"
 
-# Add your WAR file to Tomcat's webapps directory
-COPY target/HospitalManagement.war /usr/local/tomcat/webapps/ROOT.war
+# Copy the WAR file to the webapps directory of Tomcat
+COPY target/HospitalManagement.war /usr/local/tomcat/webapps/
 
-# Expose the port
+# Expose the port on which Tomcat is running
 EXPOSE 8080
 
-# Start Tomcat
+# Run Tomcat
 CMD ["catalina.sh", "run"]
