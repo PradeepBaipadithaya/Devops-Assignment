@@ -1,0 +1,23 @@
+services:
+  web:
+    build: .
+    container_name: devops-assignment-main-web
+    ports:
+      - "8090:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/hospital
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: adminroot
+
+  db:
+    build: ./mysql
+    container_name: devops-assignment-main-db
+    environment:
+      MYSQL_ROOT_PASSWORD: adminroot
+      MYSQL_DATABASE: hospital
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
