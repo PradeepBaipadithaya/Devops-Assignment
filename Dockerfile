@@ -8,7 +8,7 @@ ENV JAVA_OPTS="-Dspring.profiles.active=prod"
 COPY target/HospitalManagement.war /usr/local/tomcat/webapps/
 
 # Expose the port on which Tomcat is running
-EXPOSE 8081
+EXPOSE 8080
 
 # Run Tomcat
 CMD ["catalina.sh", "run"]
