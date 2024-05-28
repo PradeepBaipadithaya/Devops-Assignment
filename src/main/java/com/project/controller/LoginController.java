@@ -26,8 +26,8 @@ public class LoginController
 	@Autowired
 	UsersInSystemDao dao2;
 
-	@Autowired
-    private UserDao userDao;
+	// @Autowired
+ //    private UserDao userDao;
 	 
 	@RequestMapping(value="/login.html", method = RequestMethod.POST)
 	public ModelAndView view()
@@ -52,11 +52,11 @@ public class LoginController
 
     
 
-    @GetMapping("/user/count", method = RequestMethod.POST)
-    public String getUserCount() {
-        int count = userDao.getUserCount();
-        return "Total number of users: " + count;
-    }
+    // @GetMapping("/user/count", method = RequestMethod.POST)
+    // public String getUserCount() {
+    //     int count = userDao.getUserCount();
+    //     return "Total number of users: " + count;
+    // }
 	
 	@RequestMapping(value="/dashboard.html", method = RequestMethod.POST)
 	public ModelAndView validate(@RequestParam("role")String role, @RequestParam("username")String username, @RequestParam("password")String password, HttpServletRequest request ) 
