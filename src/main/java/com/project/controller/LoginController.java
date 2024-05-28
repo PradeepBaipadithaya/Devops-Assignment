@@ -27,7 +27,7 @@ public class LoginController
 	UsersInSystemDao dao2;
 
 	@Autowired
-    	private UserDao userDao;
+    	UserDao userDao;
 	 
 	@RequestMapping(value="/login.html", method = RequestMethod.POST)
 	public ModelAndView view()
