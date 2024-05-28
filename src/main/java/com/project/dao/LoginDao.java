@@ -21,13 +21,13 @@ public class LoginDao
 	@Autowired
 	LoginDao infoLog;
 
-	@Autowired
-	private JdbcTemplate jdbcTemplate;
+	// @Autowired
+	// private JdbcTemplate jdbcTemplate;
 
-	public int getUserCount() {
-		String sql = "SELECT COUNT(*) FROM login";
-		return jdbcTemplate.queryForObject(sql, Integer.class);
-	}
+	// public int getUserCount() {
+	// 	String sql = "SELECT COUNT(*) FROM login";
+	// 	return jdbcTemplate.queryForObject(sql, Integer.class);
+	// }
 	
 	//to manage transaction by itself
 	@Transactional
