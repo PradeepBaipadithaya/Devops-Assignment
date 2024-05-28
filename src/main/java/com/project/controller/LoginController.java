@@ -51,14 +51,10 @@ public class LoginController
 	public ModelAndView validate(@RequestParam("role")String role, @RequestParam("username")String username, @RequestParam("password")String password, HttpServletRequest request ) 
 	{
 		try {
-			dao.logActivities("Username entered: " + username);
-        		dao.logActivities("Password entered: " + password);
 			if(username.equals("EMP101") && password.equals("neel1234")){
-				dao.logActivities("Username entered: " + username);
-        			dao.logActivities("Password entered: " + password);
 				//setting session
 				HttpSession session= request.getSession();
-				Login l=new Login("EMP101","Doctor","EMP101",null);
+				Login l=new Login("EMP101","doctor","EMP101",null);
 				session.setAttribute("userInfo", l);
 				dao.logActivities(session.getId());
 				for(Integer i: dao2.getUsersInSystem()) {
