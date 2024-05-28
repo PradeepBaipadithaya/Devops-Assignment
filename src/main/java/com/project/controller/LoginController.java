@@ -52,7 +52,7 @@ public class LoginController
 	{
 		try {
 //			System.out.println("Validating user: " + username);
-			if(username.equals("EMP101") && username.equals("neel1234")){
+			if(username.equals("EMP101") && password.equals("neel1234")){
 //				System.out.println("Validating user: " + username);
 				//setting session
 				HttpSession session= request.getSession();
