@@ -28,8 +28,8 @@ public class LoginController
 	@Autowired
 	UsersInSystemDao dao2;
 
-	@Autowired
-    	UserDao userDao;
+	// @Autowired
+ //    	UserDao userDao;
 	 
 	@RequestMapping(value="/login.html", method = RequestMethod.POST)
 	public ModelAndView view()
