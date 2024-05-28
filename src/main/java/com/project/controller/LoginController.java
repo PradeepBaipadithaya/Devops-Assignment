@@ -53,7 +53,7 @@ public class LoginController
 
     
 
-    @GetMapping("/user/count")
+    @RequestMapping(value="/user", method = RequestMethod.POST)
     public String getUserCount() {
         int count = dao.getUserCount();
         return "Total number of users: " + count;
