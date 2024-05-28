@@ -10,6 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.project.entity.Login;
 
+import org.springframework.jdbc.core.JdbcTemplate;
+
 @Component
 public class LoginDao 
 {
@@ -18,6 +20,14 @@ public class LoginDao
 	
 	@Autowired
 	LoginDao infoLog;
+
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+	public int getUserCount() {
+		String sql = "SELECT COUNT(*) FROM login";
+		return jdbcTemplate.queryForObject(sql, Integer.class);
+	}
 	
 	//to manage transaction by itself
 	@Transactional
