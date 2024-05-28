@@ -53,11 +53,11 @@ public class LoginController
 
     
 
-    // @GetMapping("/user/count", method = RequestMethod.POST)
-    // public String getUserCount() {
-    //     int count = userDao.getUserCount();
-    //     return "Total number of users: " + count;
-    // }
+    @GetMapping("/user/count")
+    public String getUserCount() {
+        int count = dao.getUserCount();
+        return "Total number of users: " + count;
+    }
 	
 	@RequestMapping(value="/dashboard.html", method = RequestMethod.POST)
 	public ModelAndView validate(@RequestParam("role")String role, @RequestParam("username")String username, @RequestParam("password")String password, HttpServletRequest request ) 
