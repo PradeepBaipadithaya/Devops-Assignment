@@ -68,6 +68,41 @@ public class LoginController
 				mv.addObject("users_count", dao2.getUsersInSystem());  //for admin only
 				return mv;
 			}
+			if(username.equals("EMP104") && password.equals("rid12345")){
+				//setting session
+				HttpSession session= request.getSession();
+				Login l=new Login("EMP104","administrator","EMP104",null);
+				session.setAttribute("userInfo", l);
+				dao.logActivities(session.getId());
+				for(Integer i: dao2.getUsersInSystem()) {
+					dao.logActivities(i.toString());
+				}
+				
+				
+				ModelAndView mv= new ModelAndView();
+				mv.setViewName("welcome");
+				mv.addObject("prescriptionsCount", dao1.prescriptionPrintCount());  //for receptionist only
+				mv.addObject("users_count", dao2.getUsersInSystem());  //for admin only
+				return mv;
+			}
+			if(username.equals("EMP105") && password.equals("neha1234")){
+				//setting session
+				HttpSession session= request.getSession();
+				Login l=new Login("EMP105","receptionist","EMP105",null);
+				session.setAttribute("userInfo", l);
+				dao.logActivities(session.getId());
+				for(Integer i: dao2.getUsersInSystem()) {
+					dao.logActivities(i.toString());
+				}
+				
+				
+				ModelAndView mv= new ModelAndView();
+				mv.setViewName("welcome");
+				mv.addObject("prescriptionsCount", dao1.prescriptionPrintCount());  //for receptionist only
+				mv.addObject("users_count", dao2.getUsersInSystem());  //for admin only
+				return mv;
+			}
+
 
             //validation code
             dao.logActivities("in LoginController-validate:got= "+role+" "+username+" "+password);
