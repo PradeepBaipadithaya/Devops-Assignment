@@ -1,6 +1,7 @@
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+package com.project.dao;
 
 @Repository
 public class UserDao {
