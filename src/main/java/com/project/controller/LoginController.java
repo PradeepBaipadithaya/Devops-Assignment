@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import com.project.dao.LoginDao;
-import com.project.dao.UserDao;
 
 import com.project.dao.UsersInSystemDao;
 import com.project.dao.receptionist.PatientPrescriptionDao;
