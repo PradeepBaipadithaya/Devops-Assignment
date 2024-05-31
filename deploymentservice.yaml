@@ -14,15 +14,18 @@ spec:
     spec:
       containers:
         - name: hospitalmanagement-web
-          image: pradeepbaipadithaya/devops-assignment-main-web # Image for web service
+          image: pradeepbaipadithaya/devops-assignment-main-web
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8080 # Port for the web service
+            - containerPort: 8080
         - name: hospitalmanagement-db
-          image: pradeepbaipadithaya/devops-assignment-main-db # Image for database service
+          image: pradeepbaipadithaya/devops-assignment-main-db
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 3306 # Port for the database service
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: "adminroot" # Set your root password here
 
 ---
 
@@ -35,6 +38,6 @@ spec:
     app: hospitalmanagement
   ports:
     - protocol: "TCP"
-      port: 8081 # Service port
-      targetPort: 8080 # Target port of the web service
+      port: 8081
+      targetPort: 8080
   type: NodePort
