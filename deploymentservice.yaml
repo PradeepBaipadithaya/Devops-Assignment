@@ -37,8 +37,8 @@ spec:
   selector:
     app: hospitalmanagement
   ports:
-    - protocol: "TCP"
-     nodePort: 30000
-      port: 8081
-      targetPort: 8080
+    - protocol: TCP
+      nodePort: 30000
+      port: 8081 # Service port
+      targetPort: 8080 # Target port of the web service
   type: NodePort
