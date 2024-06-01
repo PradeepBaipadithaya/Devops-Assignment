@@ -44,6 +44,7 @@ public class EditLoginDetailsController
 		}
 	}
 	
+	//post methods to show login details
 	@RequestMapping(value="/newLoginDetails.html", method = RequestMethod.POST)
 	public ModelAndView editLoginView(@RequestParam("username")String username,@RequestParam("password")String password, HttpServletRequest request)
 	{

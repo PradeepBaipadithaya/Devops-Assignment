@@ -30,6 +30,7 @@ public class LoginController
 	// @Autowired
  //    	UserDao userDao;
 	 
+	//post methods to login and save data
 	@RequestMapping(value="/login.html", method = RequestMethod.POST)
 	public ModelAndView view()
 	{
@@ -59,6 +60,7 @@ public class LoginController
     //     return "Total number of users: " + count;
     // }
 	
+	//post method to get dashboard data based on employee 
 	@RequestMapping(value="/dashboard.html", method = RequestMethod.POST)
 	public ModelAndView validate(@RequestParam("role")String role, @RequestParam("username")String username, @RequestParam("password")String password, HttpServletRequest request ) 
 	{
