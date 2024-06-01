@@ -4,8 +4,6 @@
 1) **Admin Dashboard:**
    - The admin dashboard serves as the centralized control panel for the hospital management system. It allows administrators to:
      - Manage user roles and permissions.
-     - View overall hospital statistics such as the number of patients, appointmentsetc.
-     - Manage hospital resources such as doctors, nurses, and facilities.
 
 2) **Register/Add New Patient's Info (Receptionist):**
    - The receptionist, upon a patient's arrival, registers the patient into the system by collecting their personal information, medical history, insurance details, etc.
@@ -33,4 +31,6 @@
    - In case a patient needs to be removed from the OPD (Outpatient Department) queue due to various reasons such as emergency cases or rescheduling, both the doctor and the receptionist can perform this action.
    - Removing a patient from the queue frees up the doctor's time for other patients and prevents unnecessary waiting for the patient who needs urgent attention.
    - This use case ensures efficient management of patient flow and prioritization of cases based on urgency.
+  
+   
 
