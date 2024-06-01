@@ -17,10 +17,10 @@ public class ChromeDocterMain {
 
         try {
             WebElement button = driver.findElement(By.cssSelector(".btn.btn-primary"));
-            // Click the button
+            // Clicking the button
             button.click();
 
-            // Test scenario for login
+            // Testing scenario for login
             testLogin(driver);
 
             testPersonalInfo(driver);
@@ -32,7 +32,7 @@ public class ChromeDocterMain {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         } finally {
-            // Close the browser
+            // Closing the browser
             driver.quit();
         }
 
