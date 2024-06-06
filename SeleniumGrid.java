@@ -42,16 +42,19 @@ public class SeleniumGrid {
         // Check if WebDriver instances are initialized successfully
         if (chromeDriver != null && firefoxDriver != null && edgeDriver != null) {
             // Open webpages in respective browsers
+            
             openWebpage(chromeDriver, "http://localhost:8081/HospitalManagement");
             openWebpage(firefoxDriver, "http://localhost:8081/HospitalManagement");
             openWebpage(edgeDriver, "http://localhost:8081/HospitalManagement");
 
             // Perform tests in respective browsers
+            
             performTests(chromeDriver);
             performTests(firefoxDriver);
             performTests(edgeDriver);
 
             // Quit the browsers
+            
             chromeDriver.quit();
             firefoxDriver.quit();
             edgeDriver.quit();
@@ -95,13 +98,13 @@ public class SeleniumGrid {
     }
 
     private static void testPersonalInfo(WebDriver driver) {
-        // Example test scenario for personal info page
+        // Example of test scenarios for personal info page
         PersonalInfo personalInfo = new PersonalInfo(driver);
         personalInfo.clickPersonalInfo();
     }
 
     private static void testOPDQueue(WebDriver driver) {
-        // Example test scenario for OPD queue page
+        // Example of test scenario for OPD queue page
         OPDQueue opdQueue = new OPDQueue(driver);
         opdQueue.clickOpdQueue();
     }
