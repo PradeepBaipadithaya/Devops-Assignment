@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hospital-management-deployment
+spec:
+  selector:
+    matchLabels:
+      app: hospitalmanagement
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: hospitalmanagement
+    spec:
+      containers:
+        - name: hospitalmanagement-web
+          image: pradeepbaipadithaya/devops-assignment-main-web
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+        - name: hospitalmanagement-db
+          image: pradeepbaipadithaya/devops-assignment-main-db
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: "adminroot" # Set your root password here
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: hospital-management-svc
+spec:
+  selector:
+    app: hospitalmanagement
+  ports:
+    - protocol: TCP
+      nodePort: 30000
+      port: 8081 # Service port
+      targetPort: 8080 # Target port of the web service
+  type: NodePort
